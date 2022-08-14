@@ -85,6 +85,21 @@ function roundTo(x, precision) {
     return Math.round(x * precision)/precision;
 }
 linkButtons();
-//TODO Truncate values in the calculator
-//TODO Change some of the styles.
-//TODO Add AC and C functionality
+
+document.querySelector(".undo").addEventListener('click', undo);
+document.querySelector(".clear").addEventListener('click', allClear);
+
+function undo() {
+    // remove last item in the textContent of screen.
+    // if it's an operator change currentOp
+    // if first/second number update that
+}
+
+function allClear() {
+    // clear everything i.e current op first number and second number update screen
+    currentOp = "";
+    firstNumber = "";
+    secondNumber = "";
+    const screen = document.querySelector(".screen");
+    screen.textContent = "";
+}
