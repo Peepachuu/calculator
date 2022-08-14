@@ -1,7 +1,7 @@
 let firstNumber = "";
 let secondNumber = "";
 let currentOp = "";
-
+const preciseTo = 1000;
 function add(x, y) {
     return x + y;
 }
@@ -29,7 +29,7 @@ function operate(operator, x, y) {
         return;
     x = Number(x);
     y = Number(y);
-    let result = operators[operator](x, y);
+    let result = roundTo(operators[operator](x, y), preciseTo);
     let screen = document.querySelector(".screen");
     screen.textContent = result;
     firstNumber = "" + result;
@@ -81,6 +81,9 @@ function linkButtons() {
     });
 }
 
+function roundTo(x, precision) {
+    return Math.round(x * precision)/precision;
+}
 linkButtons();
 //TODO Truncate values in the calculator
 //TODO Change some of the styles.
