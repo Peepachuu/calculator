@@ -82,3 +82,6 @@ function linkButtons() {
 }
 
 linkButtons();
+//TODO Truncate values in the calculator
+//TODO Change some of the styles.
+//TODO Add AC and C functionality

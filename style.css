@@ -1,5 +1,6 @@
 * {
     font-size: 30px;
+    color: #E5E0E0;
 }
 
 .calculator {
@@ -7,7 +8,7 @@
     flex-direction: column;
 
     gap: 8px;
-    background-color: black;
+    background-color: #E5E0E0;
     padding: 16px;
     border-radius: 12px;
     width: 400px;
@@ -22,16 +23,18 @@ body {
     padding: 0px;
     margin: 0px;
     height: 100vh;
+    background-color: #212529;
 }
 
 .row {
     display: flex;
     flex: 1;
-    gap: 8px;
+    gap: 16px;
 }
 
 button {
     border-radius: 8px;
+    background-color: #212529;
 }
 
 .row button {
@@ -51,9 +54,10 @@ button {
 }
 
 .screen {
-    background-color: grey;
+    background-color:#212529;
     border-radius: 4px;
     flex: 1.5;
+    padding: 8px;
 }
 
 .num-ops {
