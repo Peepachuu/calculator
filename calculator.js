@@ -32,6 +32,8 @@ function operate(operator, x, y) {
     let result = operators[operator](x, y);
     let screen = document.querySelector(".screen");
     screen.textContent = result;
+    firstNumber = "" + result;
+    secondNumber = "";
 }
 
 function displayOnScreen(numOp) {
@@ -41,7 +43,9 @@ function displayOnScreen(numOp) {
             currentOp = numOp;
             screen.textContent = firstNumber + numOp;
         } else {
-            
+            operate(currentOp, firstNumber, secondNumber);
+            currentOp = numOp;
+            screen.textContent = firstNumber + currentOp;
         }
     } else {
         if (currentOp == "") {
