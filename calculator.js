@@ -33,6 +33,7 @@ function operate(operator, x, y) {
     let screen = document.querySelector(".screen");
     screen.textContent = result;
     firstNumber = "" + result;
+    currentOp = "";
     secondNumber = "";
 }
 
@@ -56,15 +57,6 @@ function displayOnScreen(numOp) {
             screen.textContent = firstNumber + currentOp + secondNumber;
         }
     }
-    /*chcek if op
-    then check if there is a second number
-    if there is do the current operation on the first number and second number and add it to the screen
-    if not then set op to the current op and add it to the screen
-    if not op
-    check if currentOp
-    if it is then add it to that
-    if not add it to the first number
-    */
 }
 
 displayOnScreen("0");
@@ -84,22 +76,33 @@ function linkButtons() {
 function roundTo(x, precision) {
     return Math.round(x * precision)/precision;
 }
+
 linkButtons();
 
 document.querySelector(".undo").addEventListener('click', undo);
 document.querySelector(".clear").addEventListener('click', allClear);
 
 function undo() {
-    // remove last item in the textContent of screen.
-    // if it's an operator change currentOp
-    // if first/second number update that
+    if (secondNumber != "") {
+        secondNumber = secondNumber.slice(0, -1);
+    } else if (currentOp != "") {
+        currentOp = "";
+    } else if (firstNumber != "") {
+        firstNumber = firstNumber.slice(0, -1);
+    }
+    document.querySelector(".screen").textContent = firstNumber + currentOp + secondNumber;
 }
 
 function allClear() {
-    // clear everything i.e current op first number and second number update screen
     currentOp = "";
     firstNumber = "";
     secondNumber = "";
     const screen = document.querySelector(".screen");
     screen.textContent = "";
 }
+
+//TODO handle division by zero
+//TODO add undo functionality
+//TODO change style some more
+//TODO add decimal functionality
+//TODO add keyboard functionality
