@@ -2,6 +2,7 @@ let firstNumber = "";
 let secondNumber = "";
 let currentOp = "";
 const preciseTo = 1000;
+
 function add(x, y) {
     return x + y;
 }
@@ -58,6 +59,8 @@ function displayOnScreen(numOp) {
         }
     }
     else if ("+-÷×".includes(numOp)) {
+        if (firstNumber == "")
+            return;
         if (secondNumber == "") {
             currentOp = numOp;
             screen.textContent = firstNumber + numOp;
@@ -76,9 +79,6 @@ function displayOnScreen(numOp) {
         }
     }
 }
-
-
-displayOnScreen("0");
 
 function linkButtons() {
     allNumOps = document.querySelectorAll(".row button");
@@ -120,6 +120,3 @@ function allClear() {
     screen.textContent = "";
 }
 
-//TODO change style some more
-//TODO add decimal functionality
-//TODO add keyboard functionality

@@ -1,6 +1,6 @@
 * {
     font-size: 30px;
-    color: #E5E0E0;
+    color: snow;
 }
 
 .calculator {
@@ -8,7 +8,7 @@
     flex-direction: column;
 
     gap: 8px;
-    background-color: #E5E0E0;
+    background-color: #B7D3DF;
     padding: 16px;
     border-radius: 12px;
     width: 400px;
@@ -23,7 +23,7 @@ body {
     padding: 0px;
     margin: 0px;
     height: 100vh;
-    background-color: #212529;
+    background-color: #898AA6;
 }
 
 .row {
@@ -34,9 +34,14 @@ body {
 
 button {
     border-radius: 8px;
-    background-color: #212529;
+    background-color: #C9BBCF;
+    border: 2px solid #898AA6;
 }
 
+button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
 .row button {
     flex: 1;
     outline: none;
@@ -54,8 +59,9 @@ button {
 }
 
 .screen {
-    background-color:#212529;
-    border-radius: 4px;
+    background-color:#C9BBCF;
+    border-radius: 8px;
+    border: 2px solid #898AA6;
     flex: 1.5;
     padding: 8px;
 }
