@@ -27,6 +27,11 @@ const operators = {
 function operate(operator, x, y) {
     if (operator == "" || x == "" || y == "")
         return;
+    
+    if (operator == "÷" && y == "0") {
+        alert("The math gods don't allow division by 0!")
+        return;
+    }
     x = Number(x);
     y = Number(y);
     let result = roundTo(operators[operator](x, y), preciseTo);
@@ -39,7 +44,20 @@ function operate(operator, x, y) {
 
 function displayOnScreen(numOp) {
     screen = document.querySelector(".screen");
-    if ("+-÷×".includes(numOp)) {
+    if (numOp == ".") {
+        if (currentOp == "") {
+            if (firstNumber.includes("."))
+                return;
+            firstNumber += numOp;
+            screen.textContent = firstNumber;
+        } else {
+            if (secondNumber.includes("."))
+                return;
+            secondNumber += numOp;
+            screen.textContent = firstNumber + currentOp + secondNumber;
+        }
+    }
+    else if ("+-÷×".includes(numOp)) {
         if (secondNumber == "") {
             currentOp = numOp;
             screen.textContent = firstNumber + numOp;
@@ -58,6 +76,7 @@ function displayOnScreen(numOp) {
         }
     }
 }
+
 
 displayOnScreen("0");
 
@@ -101,8 +120,6 @@ function allClear() {
     screen.textContent = "";
 }
 
-//TODO handle division by zero
-//TODO add undo functionality
 //TODO change style some more
 //TODO add decimal functionality
 //TODO add keyboard functionality
